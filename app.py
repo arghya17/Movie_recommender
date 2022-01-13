@@ -17,11 +17,6 @@ flow = (
     )
 )
 
-with flow:
-    flow.index(inputs=movies)
-    query = Document(text=input("Please enter your search term: "))
-    response = flow.search(inputs=query, return_results=True)
-
 def print_search_results(response):
     matches = response[0].data.docs[0].matches
 
@@ -30,5 +25,16 @@ def print_search_results(response):
 
     for match in matches:
         print(f"- {match.text}")
+def index():
+    with flow:
+        flow.index(inputs=movies)
 
-print_search_results(response)
+def search():
+    with flow:
+        query = Document(text=input("Please enter your search term: "))
+        response = flow.search(inputs=query, return_results=True)
+        print_search_results(response)
+
+index()
+search()
+
