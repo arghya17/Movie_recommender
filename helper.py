@@ -1,8 +1,8 @@
-from http import client
 from jina import Client,Document
 from config import TEXT_PORT,TEXT_SERVER,TOP_k,MODEL,CACHE_DIR,WORKSPACE_DIR
 from jina import DocumentArray,Flow
-import sys
+import sys,os
+import requests
 from data_extractor import movies
 
 flow = (
@@ -28,7 +28,7 @@ def index():
             show_progress=True
         )
 
-index()
+
 def search_by_text(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
     client= Client(host=server, protocol="http", port=port)
     response=client.search(
@@ -37,6 +37,7 @@ def search_by_text(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
         return_results=True,
         show_progress=True,
     )
+    print(response)
     matches=response[0].data.docs[0].matches
 
     return matches
@@ -52,8 +53,26 @@ def search(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
             show_progress=True,
         )
     matches=response[0].data.docs[0].matches
-
     return matches
+
+def get_matches(input):
+
+    PORT = 8051
+    ENDPOINT = "/search"
+
+    url = f"http://0.0.0.0:{PORT}{ENDPOINT}"
+    headers = {"Content-Type": "application/json"}
+
+    data = {"data": [{"text": input}]}
+    print(data)
+
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        content = response.json()
+        print(response)
+        return content["data"]["docs"][0]["matches"]
+    except Exception:
+        return []
 
 """text=input("Enter a search term : ")
 matches=search(text)
