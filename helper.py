@@ -73,7 +73,8 @@ def get_matches(input):
         return content["data"]["docs"][0]["matches"]
     except Exception:
         return []
-
+#note index, search and get_matches are redundant and were used in previous versions of code
+#The above mentioned functions do not affect the backend part of code in any way
 """text=input("Enter a search term : ")
 matches=search(text)
 for match in matches:
