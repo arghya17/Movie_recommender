@@ -10,13 +10,14 @@ Search for movie recommendation using any keyword
 
 ## Tech used?
 
-Backend: Jina
+Backend: Jina \
 Frontend: Streamlit
 
 ## How to use?
 
 Clone the repository in the local machine
--Create a new virtual environment in python
+
+- Create a new virtual environment in python
 
 ```
 python -m venv movie
@@ -50,6 +51,7 @@ Upon executing the above commands a local host will be launched in your default 
 
 ## Few things to note:
 
--After running the program once an workspace folder will be created. Note before running the program again delete the workspace folder
--To update movies only change DocumentArray in data_extractor.py
--During add new dataset to the code please change the value in frontend if all the attributes of movie are not present in the dataset
+- Jina works best in linux and Mac os. Please configure for windows from jina website
+- After running the program once an workspace folder will be created. Note before running the program again delete the workspace folder
+- If you want to update movies only change DocumentArray in data_extractor.py
+- During add new dataset to the code please change the value in frontend if all the attributes of movie are not present in the dataset
