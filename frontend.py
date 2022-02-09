@@ -1,6 +1,6 @@
 import streamlit as st
 from config import TEXT_PORT, TEXT_SERVER
-from helper import search_by_text,search,get_matches
+from helper import search_by_text,get_matches
 
 
 matches=[]

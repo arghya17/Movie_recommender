@@ -1,7 +1,7 @@
 # Movie_recommender
 
-A Movie recommender website based on neural search built using jina as backend and streamlit as frontend
-
+A Movie recommender website based on neural search built using jina as backend and streamlit as frontend \
+Original issue [here](https://github.com/jina-ai/jina/issues/3648) \
 Dataset from [this site](https://data.world/iliketurtles/movie-dataset/workspace/file?filename=Hydra-Movie-Scrape.csv). Movies are updated upto year 2018
 
 ## Idea:

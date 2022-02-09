@@ -42,18 +42,18 @@ def search_by_text(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
 
     return matches
 
-def search(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
-    with flow:
-        flow.protocol="http"
-        flow.port_expose=port
-        response=flow.search(
-            Document(text=input),
-            parameters={"limit": limit},
-            return_results=True,
-            show_progress=True,
-        )
-    matches=response[0].data.docs[0].matches
-    return matches
+# def search(input, server=TEXT_SERVER, port=TEXT_PORT, limit=TOP_k):
+#     with flow:
+#         flow.protocol="http"
+#         flow.port_expose=port
+#         response=flow.search(
+#             Document(text=input),
+#             parameters={"limit": limit},
+#             return_results=True,
+#             show_progress=True,
+#         )
+#     matches=response[0].data.docs[0].matches
+#     return matches
 
 def get_matches(input):
 
