@@ -9,6 +9,6 @@ with open("Data.csv") as file:
     )
 movies=movies.shuffle(seed=randint)
 for i in range(len(movies)):
-    movies[i].text=movies[i].text+f"{movies[i].tags.fields['Genres'].string_value}"
+    movies[i].text=movies[i].text+f"{movies[i].tags.fields['Genres'].string_value}"+f"{movies[i].tags.fields['Title'].string_value}"
 print(movies[0].tags.fields['Title'].string_value)
 #print is just an example to see the parameters of movies docArray
